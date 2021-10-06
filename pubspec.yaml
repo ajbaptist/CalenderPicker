@@ -1,7 +1,7 @@
 name: calender_picker
-description: A new Flutter package project.
+description: this is package for display calender_picker.
 version: 0.0.1
-homepage:
+homepage: https://github.com/baptistjo01/CalenderPicker.git
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  intl: ^0.17.0  
 
 dev_dependencies:
   flutter_test:

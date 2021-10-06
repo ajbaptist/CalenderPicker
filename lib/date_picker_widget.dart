@@ -1,15 +1,11 @@
-// ignore_for_file: sized_box_for_whitespace
-
-import 'package:calender/cal/extra/style.dart';
-
+import 'package:calender_picker/extra/style.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-
 import 'date_widget.dart';
 import 'extra/color.dart';
 import 'gestures/tap.dart';
 
-class DatePicker extends StatefulWidget {
+class CalenderPicker extends StatefulWidget {
   final DateTime startDate;
   final double width;
   final double height;
@@ -25,7 +21,7 @@ class DatePicker extends StatefulWidget {
   final String locale;
 
   // ignore: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
-  DatePicker(
+  CalenderPicker(
     this.startDate, {
     Key? key,
     this.width = 60,
@@ -46,10 +42,10 @@ class DatePicker extends StatefulWidget {
             "provide both activated and deactivated dates List at the same time.");
 
   @override
-  State<StatefulWidget> createState() => _DatePickerState();
+  State<StatefulWidget> createState() => _CalenderPickerState();
 }
 
-class _DatePickerState extends State<DatePicker> {
+class _CalenderPickerState extends State<CalenderPicker> {
   DateTime? _currentDate;
 
   final ScrollController _controller = ScrollController();
@@ -77,6 +73,7 @@ class _DatePickerState extends State<DatePicker> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: sized_box_for_whitespace
     return Container(
       height: widget.height,
       child: ListView.builder(

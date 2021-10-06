@@ -1,4 +1,4 @@
-import 'package:calender/cal/extra/color.dart';
+import 'package:calender_picker/extra/color.dart';
 
 import 'package:flutter/material.dart';
 
