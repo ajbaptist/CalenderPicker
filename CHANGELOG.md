@@ -1,3 +1,7 @@
+## [0.0.3] - 07/10/2021
+
+* Added Screenshots
+
 ## [0.0.2] - 07/10/2021
 
 * Updated Readme 
