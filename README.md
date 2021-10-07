@@ -1,5 +1,17 @@
 # CalenderPicker
 
+[![pub package](https://img.shields.io/pub/v/calender_picker.svg)](https://pub.dartlang.org/packages/calender_picker)
+
+💥 Flutter CalenderPicker Library that provides a calendar as a horizontal timeline and single section and multiple selections options also available 💥
+
+<p align="center">
+<img src="https://github.com/baptistjo01/CalenderPicker/blob/main/screenshots/calender%20picker.jpg" width="300" alt="Screenshot iOS">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/baptistjo01/CalenderPicker/blob/main/screenshots/multi%20selection.jpg" width="300" alt="Screenshot android">
+</p><br>
+
+# Let's get started
+
 ## How To Use
 
 Import the following package in your dart file
