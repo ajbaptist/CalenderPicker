@@ -1,3 +1,10 @@
-## 0.0.1
+## [0.0.2] - 07/10/2021
 
-* TODO: Describe initial release.
+* Updated Readme 
+* Added Muti Select Date option
+* Removed time from the selected date
+
+
+## [0.0.1] - 06/10/2021
+
+* Initial release.

@@ -1,39 +1,62 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# CalenderPicker
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+## How To Use
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+Import the following package in your dart file
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```dart
+import 'package:calender_picker/calender_picker.dart';
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+This version is breaking backwards compatibility
+
+Use the `CalenderPicker` Widget
 
 ```dart
-const like = 'sample';
+Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      CalenderPicker(
+        DateTime.now(),
+        initialSelectedDate: DateTime.now(),
+        selectionColor: Colors.black,
+        selectedTextColor: Colors.white,
+        onDateChange: (date) {
+          // New date selected
+          setState(() {
+            _selectedValue = date;
+          });
+        },
+      ),
+    ],
+)
 ```
 
-## Additional information
+##### Constructor:
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```dart
+ CalenderPicker(
+    this.startDate, {
+    Key? key,
+    this.width = 60,
+    this.height = 70,
+    this.enableMultiSelection = false,
+    this.monthTextStyle = defaultMonthTextStyle,
+    this.dayTextStyle = defaultDayTextStyle,
+    this.dateTextStyle = defaultDateTextStyle,
+    this.selectedTextColor = Colors.white,
+    this.selectionColor = AppColors.defaultSelectionColor,
+    this.initialSelectedDate,
+    this.activeDates,
+    this.daysCount = 500,
+    this.onDateChange,
+    this.locale = "en_US",
+}) : super(key: key);
+```
+
+Author
+------
+
+* [John Baptist](https://github.com/baptistjo01/)

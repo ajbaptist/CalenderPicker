@@ -7,7 +7,9 @@ class DateWidget extends StatefulWidget {
   final DateTime date;
   final TextStyle? monthTextStyle, dayTextStyle, dateTextStyle;
   final Color selectionColor;
+  final Color activeColor;
   final DateSelectionCallback? onDateSelected;
+  final bool isMultiSelectionEnable;
   final String? locale;
 
   // ignore: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
@@ -15,6 +17,8 @@ class DateWidget extends StatefulWidget {
     required this.date,
     required this.monthTextStyle,
     required this.dayTextStyle,
+    required this.activeColor,
+    required this.isMultiSelectionEnable,
     required this.dateTextStyle,
     required this.selectionColor,
     this.width,
@@ -37,7 +41,11 @@ class _DateWidgetState extends State<DateWidget> {
         margin: const EdgeInsets.all(3.0),
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(25)),
-          color: widget.selectionColor,
+          color: widget.isMultiSelectionEnable == true
+              ? isSelect == false
+                  ? widget.selectionColor
+                  : widget.activeColor
+              : widget.selectionColor,
         ),
         child: Padding(
           padding: const EdgeInsets.all(8),
@@ -58,10 +66,16 @@ class _DateWidgetState extends State<DateWidget> {
         ),
       ),
       onTap: () {
-        // Check if onDateSelected is not null
-        if (widget.onDateSelected != null) {
-          // Call the onDateSelected Function
-          widget.onDateSelected!(widget.date);
+        if (widget.isMultiSelectionEnable == true) {
+          setState(() {
+            isSelect = !isSelect;
+          });
+        } else {
+          // Check if onDateSelected is not null
+          if (widget.onDateSelected != null) {
+            // Call the onDateSelected Function
+            widget.onDateSelected!(widget.date);
+          }
         }
       },
     );

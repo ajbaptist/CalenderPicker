@@ -9,6 +9,7 @@ class CalenderPicker extends StatefulWidget {
   final DateTime startDate;
   final double width;
   final double height;
+  final bool enableMultiSelection;
   final Color selectedTextColor;
   final Color selectionColor;
   final TextStyle monthTextStyle;
@@ -26,6 +27,7 @@ class CalenderPicker extends StatefulWidget {
     Key? key,
     this.width = 60,
     this.height = 70,
+    this.enableMultiSelection = false,
     this.monthTextStyle = defaultMonthTextStyle,
     this.dayTextStyle = defaultDayTextStyle,
     this.dateTextStyle = defaultDateTextStyle,
@@ -73,8 +75,7 @@ class _CalenderPickerState extends State<CalenderPicker> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: sized_box_for_whitespace
-    return Container(
+    return SizedBox(
       height: widget.height,
       child: ListView.builder(
         itemCount: widget.daysCount,
@@ -98,16 +99,21 @@ class _CalenderPickerState extends State<CalenderPicker> {
             dayTextStyle: isSelected ? selectedDayStyle : widget.dayTextStyle,
             width: widget.width,
             locale: widget.locale,
+            isMultiSelectionEnable: widget.enableMultiSelection,
+            activeColor: widget.selectionColor,
             //for color change
             selectionColor:
                 isSelected ? widget.selectionColor : const Color(0XFFEDF3FF),
             onDateSelected: (selectedDate) {
-              if (widget.onDateChange != null) {
-                widget.onDateChange!(selectedDate);
+              //make changes
+              if (widget.enableMultiSelection == false) {
+                if (widget.onDateChange != null) {
+                  widget.onDateChange!(selectedDate);
+                }
+                setState(() {
+                  _currentDate = selectedDate;
+                });
               }
-              setState(() {
-                _currentDate = selectedDate;
-              });
             },
           );
         },
