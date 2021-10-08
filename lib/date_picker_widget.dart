@@ -1,8 +1,8 @@
-import 'package:calender_picker/extra/style.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'date_widget.dart';
 import 'extra/color.dart';
+import 'extra/style.dart';
 import 'gestures/tap.dart';
 
 class CalenderPicker extends StatefulWidget {
@@ -18,6 +18,7 @@ class CalenderPicker extends StatefulWidget {
   final DateTime? /*?*/ initialSelectedDate;
   final List<DateTime>? activeDates;
   final DateChangeListener? onDateChange;
+  final MultiSelectionListener? multiSelectionListener;
   final int daysCount;
   final String locale;
 
@@ -34,6 +35,7 @@ class CalenderPicker extends StatefulWidget {
     this.selectedTextColor = Colors.white,
     this.selectionColor = AppColors.defaultSelectionColor,
     this.initialSelectedDate,
+    this.multiSelectionListener,
     this.activeDates,
     this.daysCount = 500,
     this.onDateChange,
@@ -101,9 +103,13 @@ class _CalenderPickerState extends State<CalenderPicker> {
             locale: widget.locale,
             isMultiSelectionEnable: widget.enableMultiSelection,
             activeColor: widget.selectionColor,
+            activeDateStyle: selectedDateStyle,
+
+            activeDayStyle: selectedDayStyle,
             //for color change
             selectionColor:
                 isSelected ? widget.selectionColor : const Color(0XFFEDF3FF),
+
             onDateSelected: (selectedDate) {
               //make changes
               if (widget.enableMultiSelection == false) {
@@ -112,6 +118,12 @@ class _CalenderPickerState extends State<CalenderPicker> {
                 }
                 setState(() {
                   _currentDate = selectedDate;
+                });
+              } else {
+                setState(() {
+                  if (widget.multiSelectionListener != null) {
+                    widget.multiSelectionListener!(list);
+                  }
                 });
               }
             },
@@ -127,3 +139,5 @@ class _CalenderPickerState extends State<CalenderPicker> {
         date1.year == date2.year;
   }
 }
+
+List list = [];

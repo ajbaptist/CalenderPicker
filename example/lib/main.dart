@@ -1,4 +1,4 @@
-import 'package:calender_picker/calender_picker.dart';
+import 'package:calender_picker/date_picker_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -84,14 +84,12 @@ class _MyHomePageState extends State<MyHomePage> {
             CalenderPicker(
               dateTime,
               daysCount: days,
+              // ignore: avoid_print
+              enableMultiSelection: true,
+              // ignore: avoid_print
+              multiSelectionListener: (value) => print(value),
               selectionColor: const Color(0XFF0342E9),
               selectedTextColor: Colors.white,
-              onDateChange: (data) {
-                setState(() {
-                  // ignore: avoid_print
-                  print(data);
-                });
-              },
             ),
           ],
         ),
