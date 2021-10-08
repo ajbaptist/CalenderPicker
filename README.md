@@ -52,8 +52,6 @@ Column(
  CalenderPicker(
     this.startDate, {
     Key? key,
-    this.width = 60,
-    this.height = 70,
     this.enableMultiSelection = false,
     this.monthTextStyle = defaultMonthTextStyle,
     this.dayTextStyle = defaultDayTextStyle,
