@@ -1,3 +1,7 @@
+## [1.0.1] - 08/10/2021
+
+* Added Screenshots
+
 ## [1.0.0] - 08/10/2021
 
 * fixed alignment problems
