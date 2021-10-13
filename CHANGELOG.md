@@ -1,3 +1,7 @@
+## [1.0.2] - 13/10/2021
+
+* Added multi date listener function
+
 ## [1.0.1] - 08/10/2021
 
 * Added Screenshots

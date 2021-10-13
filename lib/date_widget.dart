@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'calender_picker.dart';
+import 'date_picker_widget.dart';
 import 'gestures/tap.dart';
 
 class DateWidget extends StatefulWidget {
@@ -89,13 +89,17 @@ class _DateWidgetState extends State<DateWidget> {
 
             if (isSelect == true) {
               list.add(widget.date);
-              // Call the onDateSelected Function
-              // ignore: avoid_print
-              print(list);
+              if (widget.onDateSelected != null) {
+                // Call the onDateSelected Function
+                widget.multiSelectionListener!(list);
+              }
             } else {
               list.remove(widget.date);
               // ignore: avoid_print
-              print(list);
+              if (widget.onDateSelected != null) {
+                // Call the onDateSelected Function
+                widget.multiSelectionListener!(list);
+              }
             }
           });
         } else {

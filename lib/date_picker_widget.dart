@@ -110,6 +110,14 @@ class _CalenderPickerState extends State<CalenderPicker> {
             selectionColor:
                 isSelected ? widget.selectionColor : const Color(0XFFEDF3FF),
 
+            multiSelectionListener: (value) {
+              setState(() {
+                if (widget.multiSelectionListener != null) {
+                  widget.multiSelectionListener!(list);
+                }
+              });
+            },
+
             onDateSelected: (selectedDate) {
               //make changes
               if (widget.enableMultiSelection == false) {
@@ -118,6 +126,8 @@ class _CalenderPickerState extends State<CalenderPicker> {
                 }
                 setState(() {
                   _currentDate = selectedDate;
+                  // ignore: avoid_print
+                  print(isSelected);
                 });
               } else {
                 setState(() {
@@ -141,3 +151,4 @@ class _CalenderPickerState extends State<CalenderPicker> {
 }
 
 List list = [];
+bool isSelect = false;
