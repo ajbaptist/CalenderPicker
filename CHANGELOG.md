@@ -1,3 +1,7 @@
+## [1.0.6] - 27/11/2021
+
+* fixed date formet
+
 ## [1.0.5] - 27/11/2021
 
 * fixed day formet
