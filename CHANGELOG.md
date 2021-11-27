@@ -1,3 +1,7 @@
+## [1.0.3] - 27/11/2021
+
+* remove print option in dead code
+
 ## [1.0.2] - 13/10/2021
 
 * Added multi date listener function

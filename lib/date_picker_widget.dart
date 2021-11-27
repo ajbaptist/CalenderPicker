@@ -81,6 +81,7 @@ class _CalenderPickerState extends State<CalenderPicker> {
       height: widget.height,
       child: ListView.builder(
         itemCount: widget.daysCount,
+        addAutomaticKeepAlives: true,
         scrollDirection: Axis.horizontal,
         controller: _controller,
         itemBuilder: (context, index) {
@@ -126,8 +127,7 @@ class _CalenderPickerState extends State<CalenderPicker> {
                 }
                 setState(() {
                   _currentDate = selectedDate;
-                  // ignore: avoid_print
-                  print(isSelected);
+                  // ignore: avoid_print                
                 });
               } else {
                 setState(() {
