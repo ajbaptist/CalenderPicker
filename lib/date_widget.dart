@@ -61,10 +61,10 @@ class _DateWidgetState extends State<DateWidget>with AutomaticKeepAliveClientMix
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                DateFormat("EEE", widget.locale)
-                    .format(widget.date)
-                    .substring(0, 1)
-                    .toUpperCase(), // WeekDay
+                DateFormat("MMM", widget.locale).format(widget.date).toUpperCase(),
+                    // .format(widget.date)
+                    // .substring(0, 1)
+                    // .toUpperCase(), // WeekDay
                 style: widget.isMultiSelectionEnable == true
                     ? isSelect == false
                         ? widget.dayTextStyle

@@ -1,3 +1,7 @@
+## [1.0.5] - 27/11/2021
+
+* fixed day formet
+
 ## [1.0.4] - 27/11/2021
 
 * fixed state problem
