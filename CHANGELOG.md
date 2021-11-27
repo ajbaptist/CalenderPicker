@@ -1,3 +1,7 @@
+## [1.0.4] - 27/11/2021
+
+* fixed state problem
+
 ## [1.0.3] - 27/11/2021
 
 * remove print option in dead code
