@@ -49,7 +49,7 @@ class CalenderPicker extends StatefulWidget {
   State<StatefulWidget> createState() => _CalenderPickerState();
 }
 
-class _CalenderPickerState extends State<CalenderPicker> {
+class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAliveClientMixin{
   DateTime? _currentDate;
 
   final ScrollController _controller = ScrollController();
@@ -77,6 +77,7 @@ class _CalenderPickerState extends State<CalenderPicker> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return SizedBox(
       height: widget.height,
       child: ListView.builder(
@@ -148,6 +149,9 @@ class _CalenderPickerState extends State<CalenderPicker> {
         date1.month == date2.month &&
         date1.year == date2.year;
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 List list = [];

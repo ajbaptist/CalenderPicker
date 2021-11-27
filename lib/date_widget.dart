@@ -37,10 +37,11 @@ class DateWidget extends StatefulWidget {
   State<DateWidget> createState() => _DateWidgetState();
 }
 
-class _DateWidgetState extends State<DateWidget> {
+class _DateWidgetState extends State<DateWidget>with AutomaticKeepAliveClientMixin {
   bool isSelect = false;
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return InkWell(
       child: Container(
         width: widget.width,
@@ -112,4 +113,8 @@ class _DateWidgetState extends State<DateWidget> {
       },
     );
   }
+
+  @override
+ 
+  bool get wantKeepAlive => true;
 }
