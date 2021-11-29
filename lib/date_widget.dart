@@ -89,13 +89,13 @@ class _DateWidgetState extends State<DateWidget>with AutomaticKeepAliveClientMix
             isSelect = !isSelect;
 
             if (isSelect == true) {
-              list.add(widget.date);
+              list.add(widget.date.toString());
               if (widget.onDateSelected != null) {
                 // Call the onDateSelected Function
                 widget.multiSelectionListener!(list);
               }
             } else {
-              list.remove(widget.date);
+              list.remove(widget.date.toString());
               // ignore: avoid_print
               if (widget.onDateSelected != null) {
                 // Call the onDateSelected Function
