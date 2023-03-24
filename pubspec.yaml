@@ -1,6 +1,6 @@
 name: calender_picker
 description: Flutter CalenderPicker Library that provides a calendar as a horizontal timeline and single section and multiple selections options also available.
-version: 2.0.0
+version: 2.0.1
 homepage: https://github.com/baptistjo01/CalenderPicker.git
 
 environment:
@@ -16,6 +16,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+
+screenshots:
+  - description: CalendarPicker demo
+    path: screenshots/calender picker.jpg
+  - description: CalendarPicker demo
+    path: screenshots/multi selection.jpg
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

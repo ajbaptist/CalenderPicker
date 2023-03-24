@@ -1,3 +1,5 @@
+## [2.0.1] - 24/03/2023
+* screenshots added
 ## [2.0.0] - 24/03/2023
 * fixed date scroll issue
 * upgraded to flutter 3.0
