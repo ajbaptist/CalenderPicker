@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'date_widget.dart';
@@ -80,66 +81,69 @@ class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAlive
     super.build(context);
     return SizedBox(
       height: widget.height,
-      child: ListView.builder(
-        itemCount: widget.daysCount,
-        addAutomaticKeepAlives: true,
-        scrollDirection: Axis.horizontal,
-        controller: _controller,
-        itemBuilder: (context, index) {
-          DateTime date;
-          DateTime _date = widget.startDate.add(Duration(days: index));
-          date = DateTime(_date.year, _date.month, _date.day);
-
-          final bool isSelected =
-              _currentDate != null ? _compareDate(date, _currentDate!) : false;
-
-          // Return the Date Widget
-          return DateWidget(
-            date: date,
-            monthTextStyle:
-                isSelected ? selectedMonthStyle : widget.monthTextStyle,
-            dateTextStyle:
-                isSelected ? selectedDateStyle : widget.dateTextStyle,
-            dayTextStyle: isSelected ? selectedDayStyle : widget.dayTextStyle,
-            width: widget.width,
-            locale: widget.locale,
-            isMultiSelectionEnable: widget.enableMultiSelection,
-            activeColor: widget.selectionColor,
-            activeDateStyle: selectedDateStyle,
-
-            activeDayStyle: selectedDayStyle,
-            //for color change
-            selectionColor:
-                isSelected ? widget.selectionColor : const Color(0XFFEDF3FF),
-
-            multiSelectionListener: (value) {
-              setState(() {
-                if (widget.multiSelectionListener != null) {
-                  widget.multiSelectionListener!(list);
-                }
-              });
-            },
-
-            onDateSelected: (selectedDate) {
-              //make changes
-              if (widget.enableMultiSelection == false) {
-                if (widget.onDateChange != null) {
-                  widget.onDateChange!(selectedDate);
-                }
-                setState(() {
-                  _currentDate = selectedDate;
-                  // ignore: avoid_print                
-                });
-              } else {
+      child: ScrollConfiguration(
+        behavior: MyCustomScrollBehavior(),
+        child: ListView.builder(
+          itemCount: widget.daysCount,
+          addAutomaticKeepAlives: true,
+          scrollDirection: Axis.horizontal,
+          controller: _controller,
+          itemBuilder: (context, index) {
+            DateTime date;
+            DateTime _date = widget.startDate.add(Duration(days: index));
+            date = DateTime(_date.year, _date.month, _date.day);
+      
+            final bool isSelected =
+                _currentDate != null ? _compareDate(date, _currentDate!) : false;
+      
+            // Return the Date Widget
+            return DateWidget(
+              date: date,
+              monthTextStyle:
+                  isSelected ? selectedMonthStyle : widget.monthTextStyle,
+              dateTextStyle:
+                  isSelected ? selectedDateStyle : widget.dateTextStyle,
+              dayTextStyle: isSelected ? selectedDayStyle : widget.dayTextStyle,
+              width: widget.width,
+              locale: widget.locale,
+              isMultiSelectionEnable: widget.enableMultiSelection,
+              activeColor: widget.selectionColor,
+              activeDateStyle: selectedDateStyle,
+      
+              activeDayStyle: selectedDayStyle,
+              //for color change
+              selectionColor:
+                  isSelected ? widget.selectionColor : const Color(0XFFEDF3FF),
+      
+              multiSelectionListener: (value) {
                 setState(() {
                   if (widget.multiSelectionListener != null) {
                     widget.multiSelectionListener!(list);
                   }
                 });
-              }
-            },
-          );
-        },
+              },
+      
+              onDateSelected: (selectedDate) {
+                //make changes
+                if (widget.enableMultiSelection == false) {
+                  if (widget.onDateChange != null) {
+                    widget.onDateChange!(selectedDate);
+                  }
+                  setState(() {
+                    _currentDate = selectedDate;
+                    // ignore: avoid_print                
+                  });
+                } else {
+                  setState(() {
+                    if (widget.multiSelectionListener != null) {
+                      widget.multiSelectionListener!(list);
+                    }
+                  });
+                }
+              },
+            );
+          },
+        ),
       ),
     );
   }
@@ -156,3 +160,13 @@ class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAlive
 
 List list = [];
 bool isSelect = false;
+
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
+}
