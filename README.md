@@ -71,4 +71,4 @@ Column(
 Author
 ------
 
-* [John Baptist](https://github.com/baptistjo01/)
+* [John Baptist](https://github.com/ajbaptist/)
