@@ -50,7 +50,8 @@ class CalenderPicker extends StatefulWidget {
   State<StatefulWidget> createState() => _CalenderPickerState();
 }
 
-class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAliveClientMixin{
+class _CalenderPickerState extends State<CalenderPicker>
+    with AutomaticKeepAliveClientMixin {
   DateTime? _currentDate;
 
   final ScrollController _controller = ScrollController();
@@ -92,10 +93,11 @@ class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAlive
             DateTime date;
             DateTime _date = widget.startDate.add(Duration(days: index));
             date = DateTime(_date.year, _date.month, _date.day);
-      
-            final bool isSelected =
-                _currentDate != null ? _compareDate(date, _currentDate!) : false;
-      
+
+            final bool isSelected = _currentDate != null
+                ? _compareDate(date, _currentDate!)
+                : false;
+
             // Return the Date Widget
             return DateWidget(
               date: date,
@@ -109,12 +111,12 @@ class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAlive
               isMultiSelectionEnable: widget.enableMultiSelection,
               activeColor: widget.selectionColor,
               activeDateStyle: selectedDateStyle,
-      
+
               activeDayStyle: selectedDayStyle,
               //for color change
               selectionColor:
                   isSelected ? widget.selectionColor : const Color(0XFFEDF3FF),
-      
+
               multiSelectionListener: (value) {
                 setState(() {
                   if (widget.multiSelectionListener != null) {
@@ -122,7 +124,7 @@ class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAlive
                   }
                 });
               },
-      
+
               onDateSelected: (selectedDate) {
                 //make changes
                 if (widget.enableMultiSelection == false) {
@@ -131,7 +133,7 @@ class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAlive
                   }
                   setState(() {
                     _currentDate = selectedDate;
-                    // ignore: avoid_print                
+                    // ignore: avoid_print
                   });
                 } else {
                   setState(() {
@@ -160,7 +162,6 @@ class _CalenderPickerState extends State<CalenderPicker> with AutomaticKeepAlive
 
 List list = [];
 bool isSelect = false;
-
 
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
   // Override behavior methods and getters like dragDevices
