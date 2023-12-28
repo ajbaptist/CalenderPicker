@@ -8,6 +8,6 @@ typedef DateChangeListener = void Function(DateTime selectedDate);
 
 ///signature for multiple dates are selected
 ///
-typedef MultiSelectionListener = void Function(List selectedDates);
+typedef MultiSelectionListener = void Function(List<dynamic> selectedDates);
 
 typedef BoolListener = void Function(bool isMultiSelect, DateTime dateTime);
