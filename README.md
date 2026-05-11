@@ -1,6 +1,6 @@
 # CalendarPicker
 
-[![pub package](https://img.shields.io/pub/v/calender_picker.svg)](https://pub.dartlang.org/packages/calender_picker)
+[![pub package](https://img.shields.io/pub/v/calender_picker.svg)](https://pub.dev/packages/calender_picker)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Flutter](https://img.shields.io/badge/Flutter-3.10+-blue.svg)](https://flutter.dev/)
 
