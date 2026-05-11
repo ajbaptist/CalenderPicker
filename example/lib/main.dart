@@ -1,127 +1,260 @@
-import 'package:calender_picker/date_picker_widget.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:calender_picker/calender_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const CalendarPickerDemo());
+}
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class CalendarPickerDemo extends StatelessWidget {
+  const CalendarPickerDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Horizontal Calendar Demo',
-      home: MyHomePage(title: 'Calendar Single Selection'),
+    return MaterialApp(
+      title: 'Calendar Picker Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData.dark(useMaterial3: true),
+      home: const HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  DateTime dateTime = DateTime.now();
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late TabController _tabController;
+  final CalendarSelectionMode _selectionMode = CalendarSelectionMode.single;
+  DateTime? _selectedDate;
+  List<DateTime> _selectedDates = [];
+  DateTime? _rangeStart;
+  DateTime? _rangeEnd;
 
-  int days = 10;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text(widget.title),
-        backgroundColor: const Color(0XFF0342E9),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                children: [
-                  const Expanded(
-                      child: Text(
-                    'Scheduled Workout',
-                    style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  )),
-                  InkWell(
-                    onTap: () => Get.bottomSheet(
-                        SfDateRangePicker(
-                          selectionMode: DateRangePickerSelectionMode.range,
-                          view: DateRangePickerView.month,
-                          onSelectionChanged: _onSelectionChanged,
-                        ),
-                        backgroundColor: Colors.white),
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: const Color(0XFFEDF3FF),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.calendar_today,
-                            color: Color(0XFF0342E9),
-                          ),
-                        )),
-                  )
-                ],
-              ),
-            ),
-            CalenderPicker(
-              dateTime,
-              daysCount: days,
-              // ignore: avoid_print
-              enableMultiSelection: true,
-              // ignore: avoid_print
-              multiSelectionListener: (value) => print(value),
-              selectionColor: const Color(0XFF0342E9),
-              selectedTextColor: Colors.white,
-            ),
+        title: const Text('Calendar Picker Demo'),
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: const [
+            Tab(text: 'Single'),
+            Tab(text: 'Multiple'),
+            Tab(text: 'Range'),
+            Tab(text: 'Custom'),
           ],
         ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          _buildSingleSelectionTab(),
+          _buildMultipleSelectionTab(),
+          _buildRangeSelectionTab(),
+          _buildCustomStyleTab(),
+        ],
       ),
     );
   }
 
-  different({DateTime? first, DateTime? last}) async {
-    int data = last!.difference(first!).inDays;
-    // ignore: avoid_print
-
-    setState(() {
-      data++;
-      days = data;
-      // ignore: avoid_print
-      print(data);
-    });
+  Widget _buildSingleSelectionTab() {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Single Date Selection',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Selected: ${_selectedDate?.toString() ?? 'None'}',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 80,
+            child: CalendarPicker(
+              selectionMode: CalendarSelectionMode.single,
+              config: const CalendarConfig(
+                locale: 'en_US',
+                highlightToday: true,
+                highlightWeekends: true,
+              ),
+              onDateSelected: (date) {
+                setState(() {
+                  _selectedDate = date;
+                });
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Selected: $date')),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
-  void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
-    if (args.value is PickerDateRange) {
-      setState(() {
-        dateTime = args.value.startDate;
+  Widget _buildMultipleSelectionTab() {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Multiple Date Selection',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Selected: ${_selectedDates.length} dates',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 80,
+            child: CalendarPicker(
+              selectionMode: CalendarSelectionMode.multiple,
+              config: const CalendarConfig(
+                locale: 'en_US',
+                highlightToday: true,
+                highlightWeekends: true,
+              ),
+              onDatesSelected: (dates) {
+                setState(() {
+                  _selectedDates = dates;
+                });
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Selected ${dates.length} dates')),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
-        if (args.value.endDate != null) {
-          different(first: args.value.startDate, last: args.value.endDate);
-          // ignore: avoid_print
-          print(args.value.startDate);
-          // ignore: avoid_print
-          print(args.value.endDate);
-        }
-      });
-    }
+  Widget _buildRangeSelectionTab() {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Date Range Selection',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Range: ${_rangeStart?.toString() ?? 'None'} - ${_rangeEnd?.toString() ?? 'None'}',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 80,
+            child: CalendarPicker(
+              selectionMode: CalendarSelectionMode.range,
+              config: const CalendarConfig(
+                locale: 'en_US',
+                highlightToday: true,
+                highlightWeekends: true,
+              ),
+              onRangeSelected: (start, end) {
+                setState(() {
+                  _rangeStart = start;
+                  _rangeEnd = end;
+                });
+                if (start != null && end != null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Range: $start to $end')),
+                  );
+                }
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCustomStyleTab() {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Custom Style (Dark Theme)',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 80,
+            child: CalendarPicker(
+              selectionMode: CalendarSelectionMode.single,
+              config: const CalendarConfig(
+                locale: 'en_US',
+                highlightToday: true,
+                highlightWeekends: true,
+              ),
+              style: CalendarStyle.dark().copyWith(
+                selectedColor: Colors.purple,
+                todayColor: Colors.orange,
+              ),
+              onDateSelected: (date) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Selected: $date')),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Material 3 Style',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 80,
+            child: CalendarPicker(
+              selectionMode: CalendarSelectionMode.single,
+              config: const CalendarConfig(
+                locale: 'en_US',
+                highlightToday: true,
+                highlightWeekends: true,
+              ),
+              style: CalendarStyle.material3(),
+              onDateSelected: (date) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Selected: $date')),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

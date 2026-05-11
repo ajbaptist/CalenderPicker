@@ -1,53 +1,117 @@
-## [2.0.2] - 21/12/2023
+# Changelog
 
-- Dependencies Upgraded
+All notable changes to this project will be documented in this file.
 
-## [2.0.1] - 24/03/2023
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-- screenshots added
+## [3.0.0] - 2026-05-11
 
-## [2.0.0] - 24/03/2023
+### 🎉 Major Release - Complete Modernization
 
-- fixed date scroll issue
-- upgraded to flutter 3.0
+#### Added
+- **New Architecture**: Complete rewrite with modern Flutter patterns
+- **Multiple Selection Modes**: Single, multiple, and date range selection
+- **Advanced Configuration**: Min/max dates, disabled dates, active dates
+- **Visual Enhancements**: Today highlighting, weekend highlighting, month headers
+- **Infinite Scrolling**: Optional infinite horizontal scrolling
+- **Customizable Styling**: Comprehensive theming system with Material 3 support
+- **Dark Mode**: Built-in dark theme support
+- **Accessibility**: Screen reader support, keyboard navigation, semantic markup
+- **RTL Support**: Right-to-left language support
+- **Controller Pattern**: Optional controller for programmatic control
+- **Performance**: Optimized rendering and smooth scrolling
+- **Testing**: Comprehensive unit and widget tests
+- **Documentation**: Complete API documentation and examples
 
-## [1.0.7] - 29/11/2021
+#### Changed
+- **Breaking**: Renamed `CalenderPicker` to `CalendarPicker`
+- **Breaking**: Complete API redesign for better usability
+- **Dependencies**: Updated to Flutter 3.10+, Dart 3.0+, latest intl
+- **Package Structure**: Modern folder structure with proper separation
 
-- fixed date formet
+#### Removed
+- **Legacy API**: Old constructor parameters and callbacks
+- **Deprecated Features**: Outdated styling and configuration options
 
-## [1.0.6] - 27/11/2021
+#### Migration Guide
+See [README.md](README.md) for detailed migration instructions from v2.x to v3.0.
 
-- fixed date formet
+## [2.0.2] - 2023-12-21
 
-## [1.0.5] - 27/11/2021
+### Changed
+- Dependencies upgraded
 
-- fixed day formet
+## [2.0.1] - 2023-03-24
 
-## [1.0.4] - 27/11/2021
+### Added
+- Screenshots added
 
-- fixed state problem
+## [2.0.0] - 2023-03-24
 
-## [1.0.3] - 27/11/2021
+### Changed
+- Fixed date scroll issue
+- Upgraded to Flutter 3.0
 
-- remove print option in dead code
+## [1.0.7] - 2021-11-29
 
-## [1.0.2] - 13/10/2021
+### Fixed
+- Date format issues
 
-- Added multi date listener function
+## [1.0.6] - 2021-11-27
 
-## [1.0.1] - 08/10/2021
+### Fixed
+- Date format issues
 
-- Added Screenshots
+## [1.0.5] - 2021-11-27
 
-## [1.0.0] - 08/10/2021
+### Fixed
+- Day format issues
 
-- fixed alignment problems
+## [1.0.4] - 2021-11-27
 
-## [0.0.4] - 07/10/2021
+### Fixed
+- State management problems
 
-- Added Screenshots
+## [1.0.3] - 2021-11-27
 
-## [0.0.3] - 07/10/2021
+### Changed
+- Removed debug print statements
+
+## [1.0.2] - 2021-10-13
+
+### Added
+- Multi-date selection listener function
+
+## [1.0.1] - 2021-10-08
+
+### Added
+- Screenshots
+
+## [1.0.0] - 2021-10-08
+
+### Fixed
+- Alignment problems
+
+## [0.0.4] - 2021-10-07
+
+### Added
+- Screenshots
+
+## [0.0.3] - 2021-10-07
+
+### Added
+- Initial screenshots
+
+## [0.0.2] - 2021-10-06
+
+### Added
+- Basic functionality
+
+## [0.0.1] - 2021-10-05
+
+### Added
+- Initial release
 
 - Added Screenshots
 
