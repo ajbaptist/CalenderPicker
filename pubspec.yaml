@@ -1,6 +1,6 @@
 name: calender_picker
 description: A modern, customizable Flutter calendar picker with horizontal timeline, single/multi-date selection, date ranges, and extensive customization options.
-version: 3.0.0
+version: 3.0.1
 homepage: https://github.com/baptistjo01/CalenderPicker.git
 repository: https://github.com/baptistjo01/CalenderPicker.git
 issue_tracker: https://github.com/baptistjo01/CalenderPicker/issues

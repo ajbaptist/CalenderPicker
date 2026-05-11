@@ -361,6 +361,19 @@ flutter run
    )
    ```
 
+## 📋 Version History
+
+| Version | Date | Highlights |
+|---------|------|------------|
+| **3.0.1** | 2026-05-11 | Bugfix: Fixed screenshot references in pubspec.yaml to use correct `.jpg` files |
+| **3.0.0** | 2026-05-11 | Major rewrite: Modern architecture, multiple selection modes, Material 3, dark mode, accessibility, RTL support |
+| **2.0.2** | 2023-12-21 | Dependencies upgraded |
+| **2.0.1** | 2023-03-24 | Screenshots added |
+| **2.0.0** | 2023-03-24 | Fixed date scroll issue, upgraded to Flutter 3.0 |
+| **1.0.7** | 2021-11-29 | Date format fixes |
+| **1.0.6** - **1.0.0** | 2021-10-08 to 2021-11-29 | Bug fixes, multi-date selection, alignment fixes |
+| **0.0.4** - **0.0.1** | 2021-10-05 to 2021-10-07 | Initial releases, basic functionality, screenshots |
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please:
