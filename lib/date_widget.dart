@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'date_picker_widget.dart';
 import 'gestures/tap.dart';
 
@@ -37,7 +38,8 @@ class DateWidget extends StatefulWidget {
   State<DateWidget> createState() => _DateWidgetState();
 }
 
-class _DateWidgetState extends State<DateWidget>with AutomaticKeepAliveClientMixin {
+class _DateWidgetState extends State<DateWidget>
+    with AutomaticKeepAliveClientMixin {
   bool isSelect = false;
   @override
   Widget build(BuildContext context) {
@@ -61,10 +63,12 @@ class _DateWidgetState extends State<DateWidget>with AutomaticKeepAliveClientMix
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                DateFormat("E", widget.locale).format(widget.date).toUpperCase(),
-                    // .format(widget.date)
-                    // .substring(0, 1)
-                    // .toUpperCase(), // WeekDay
+                DateFormat("E", widget.locale)
+                    .format(widget.date)
+                    .toUpperCase(),
+                // .format(widget.date)
+                // .substring(0, 1)
+                // .toUpperCase(), // WeekDay
                 style: widget.isMultiSelectionEnable == true
                     ? isSelect == false
                         ? widget.dayTextStyle
@@ -89,14 +93,13 @@ class _DateWidgetState extends State<DateWidget>with AutomaticKeepAliveClientMix
             isSelect = !isSelect;
 
             if (isSelect == true) {
-              list.add(widget.date.toString());
+              list.add(widget.date);
               if (widget.onDateSelected != null) {
                 // Call the onDateSelected Function
                 widget.multiSelectionListener!(list);
               }
             } else {
-              list.remove(widget.date.toString());
-              // ignore: avoid_print
+              list.remove(widget.date);
               if (widget.onDateSelected != null) {
                 // Call the onDateSelected Function
                 widget.multiSelectionListener!(list);
@@ -115,6 +118,5 @@ class _DateWidgetState extends State<DateWidget>with AutomaticKeepAliveClientMix
   }
 
   @override
- 
   bool get wantKeepAlive => true;
 }

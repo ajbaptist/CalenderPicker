@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
+
 import 'date_widget.dart';
 import 'extra/color.dart';
 import 'extra/style.dart';
@@ -91,8 +92,10 @@ class _CalenderPickerState extends State<CalenderPicker>
           controller: _controller,
           itemBuilder: (context, index) {
             DateTime date;
-            DateTime _date = widget.startDate.add(Duration(days: index));
-            date = DateTime(_date.year, _date.month, _date.day);
+            DateTime normalizedDate =
+                widget.startDate.add(Duration(days: index));
+            date = DateTime(
+                normalizedDate.year, normalizedDate.month, normalizedDate.day);
 
             final bool isSelected = _currentDate != null
                 ? _compareDate(date, _currentDate!)
@@ -160,7 +163,7 @@ class _CalenderPickerState extends State<CalenderPicker>
   bool get wantKeepAlive => true;
 }
 
-List list = [];
+List<DateTime> list = <DateTime>[];
 bool isSelect = false;
 
 class MyCustomScrollBehavior extends MaterialScrollBehavior {

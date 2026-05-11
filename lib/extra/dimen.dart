@@ -5,6 +5,8 @@
 /// github: https://github.com/iamvivekkaushik/
 /// ***
 
+library calender_picker.extra.dimen;
+
 class Dimen {
   Dimen._();
 

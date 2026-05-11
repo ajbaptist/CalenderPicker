@@ -49,7 +49,7 @@ class CalendarConfig {
   final double itemSpacing;
 
   const CalendarConfig({
-    DateTime? startDate,
+    this.startDate,
     this.minDate,
     this.maxDate,
     this.disabledDates = const [],
@@ -65,7 +65,7 @@ class CalendarConfig {
     this.height = 80,
     this.itemWidth = 60,
     this.itemSpacing = 4,
-  }) : startDate = startDate;
+  });
 
   /// Gets the effective start date, defaulting to today if not specified.
   DateTime get effectiveStartDate => startDate ?? DateTime.now();
