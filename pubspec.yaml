@@ -30,13 +30,13 @@ dev_dependencies:
 
 screenshots:
   - description: CalendarPicker demo with single selection
-    path: screenshots/single_selection.png
-  - description: CalendarPicker demo with multi selection
-    path: screenshots/multi_selection.png
+    path: screenshots/single_date_selection.jpg
+  - description: CalendarPicker demo with multiple selection
+    path: screenshots/multiple_date_selection.jpg
   - description: CalendarPicker demo with date range selection
-    path: screenshots/date_range.png
-  - description: CalendarPicker demo with dark mode
-    path: screenshots/dark_mode.png
+    path: screenshots/range_date_selection.jpg
+  - description: CalendarPicker demo with custom date selection styling
+    path: screenshots/custom_date_selection.jpg
 
 flutter:
   # Enable Material icons for the example app and package demos.
