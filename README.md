@@ -386,6 +386,7 @@ flutter run
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| **3.0.2** | 2026-05-11 | Version bump to 3.0.2 (3.0.1 already published); enhanced README version history with detailed entries for all releases |
 | **3.0.1** | 2026-05-11 | Fixed screenshot references to use correct `.jpg` files; switched images to GitHub raw URLs for pub.dev display; updated GitHub URLs to correct repository |
 | **3.0.0** | 2026-05-11 | Major rewrite: Modern architecture, multiple selection modes (single/multi/range), Material 3, dark mode, accessibility, RTL support, controller pattern, performance optimizations |
 | **2.0.2** | 2023-12-21 | Dependencies upgraded |
