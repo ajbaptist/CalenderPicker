@@ -25,9 +25,30 @@ A modern, customizable Flutter calendar picker with horizontal timeline, single/
 
 ## 📸 Screenshots
 
-| Single Selection | Multiple Selection | Date Range | Custom Styling |
-|------------------|-------------------|------------|----------------|
-|![Single](screenshots/single_date_selection.jpg)|![Multiple](screenshots/multiple_date_selection.jpg)|![Range](screenshots/range_date_selection.jpg)|![Custom](screenshots/custom_date_selection.jpg)|
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/ajbaptist/CalenderPicker/main/screenshots/single_date_selection.jpg" width="200">
+      <br>
+      <em>Single Date Selection</em>
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/ajbaptist/CalenderPicker/main/screenshots/multiple_date_selection.jpg" width="200">
+      <br>
+      <em>Multiple Date Selection</em>
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/ajbaptist/CalenderPicker/main/screenshots/range_date_selection.jpg" width="200">
+      <br>
+      <em>Date Range Selection</em>
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/ajbaptist/CalenderPicker/main/screenshots/custom_date_selection.jpg" width="200">
+      <br>
+      <em>Custom Styling</em>
+    </td>
+  </tr>
+</table>
 
 ## 🚀 Quick Start
 
