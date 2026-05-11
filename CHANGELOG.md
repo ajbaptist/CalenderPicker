@@ -11,6 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed screenshot references in `pubspec.yaml` — updated paths to match actual `.jpg` files instead of non-existent `.png` files
 - Updated README.md screenshot table to use correct filenames and descriptions
 - Cleaned up stale/unused screenshot files from repository
+- Fixed GitHub URLs in `pubspec.yaml` from `baptistjo01` to `ajbaptist`
+- Fixed pub badge link from `pub.dartlang.org` to `pub.dev`
+- Switched screenshot images to GitHub raw URLs so they display properly on pub.dev
+
+### Added
+- Added comprehensive Version History table to README.md covering all releases from 0.0.1 to 3.0.1
+- Added detailed version history entry in CHANGELOG.md for 3.0.1
 
 ## [3.0.0] - 2026-05-11
 

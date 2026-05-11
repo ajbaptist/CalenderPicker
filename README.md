@@ -386,14 +386,23 @@ flutter run
 
 | Version | Date | Highlights |
 |---------|------|------------|
-| **3.0.1** | 2026-05-11 | Bugfix: Fixed screenshot references in pubspec.yaml to use correct `.jpg` files |
-| **3.0.0** | 2026-05-11 | Major rewrite: Modern architecture, multiple selection modes, Material 3, dark mode, accessibility, RTL support |
+| **3.0.1** | 2026-05-11 | Fixed screenshot references to use correct `.jpg` files; switched images to GitHub raw URLs for pub.dev display; updated GitHub URLs to correct repository |
+| **3.0.0** | 2026-05-11 | Major rewrite: Modern architecture, multiple selection modes (single/multi/range), Material 3, dark mode, accessibility, RTL support, controller pattern, performance optimizations |
 | **2.0.2** | 2023-12-21 | Dependencies upgraded |
 | **2.0.1** | 2023-03-24 | Screenshots added |
 | **2.0.0** | 2023-03-24 | Fixed date scroll issue, upgraded to Flutter 3.0 |
 | **1.0.7** | 2021-11-29 | Date format fixes |
-| **1.0.6** - **1.0.0** | 2021-10-08 to 2021-11-29 | Bug fixes, multi-date selection, alignment fixes |
-| **0.0.4** - **0.0.1** | 2021-10-05 to 2021-10-07 | Initial releases, basic functionality, screenshots |
+| **1.0.6** | 2021-11-27 | Date format fixes |
+| **1.0.5** | 2021-11-27 | Day format issues fixed |
+| **1.0.4** | 2021-11-27 | State management problems fixed |
+| **1.0.3** | 2021-11-27 | Removed debug print statements |
+| **1.0.2** | 2021-10-13 | Added multi-date selection listener function |
+| **1.0.1** | 2021-10-08 | Screenshots added |
+| **1.0.0** | 2021-10-08 | Alignment problems fixed |
+| **0.0.4** | 2021-10-07 | Screenshots added |
+| **0.0.3** | 2021-10-07 | Initial screenshots added |
+| **0.0.2** | 2021-10-06 | Basic functionality, updated Readme, multi-select date option, removed time from selected date |
+| **0.0.1** | 2021-10-05 | Initial release |
 
 ## 🤝 Contributing
 
