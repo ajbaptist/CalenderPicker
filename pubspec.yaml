@@ -1,8 +1,11 @@
 name: calender_picker
+
 description: A modern, customizable Flutter calendar picker with horizontal timeline, single/multi-date selection, date ranges, and extensive customization options.
+
 version: 3.0.2
-homepage: https://github.com/ajbaptist/CalenderPicker.git
-repository: https://github.com/ajbaptist/CalenderPicker.git
+
+homepage: https://github.com/ajbaptist/CalenderPicker
+repository: https://github.com/ajbaptist/CalenderPicker
 issue_tracker: https://github.com/ajbaptist/CalenderPicker/issues
 documentation: https://github.com/ajbaptist/CalenderPicker#readme
 
@@ -29,19 +32,17 @@ dev_dependencies:
   flutter_lints: ^4.0.0
 
 screenshots:
-  - description: CalendarPicker demo with single selection
+  - description: Calendar picker with single date selection
     path: screenshots/single_date_selection.jpg
-  - description: CalendarPicker demo with multiple selection
+
+  - description: Calendar picker with multiple date selection
     path: screenshots/multiple_date_selection.jpg
-  - description: CalendarPicker demo with date range selection
+
+  - description: Calendar picker with date range selection
     path: screenshots/range_date_selection.jpg
-  - description: CalendarPicker demo with custom date selection styling
+
+  - description: Calendar picker with custom styling
     path: screenshots/custom_date_selection.jpg
 
 flutter:
-  # Enable Material icons for the example app and package demos.
   uses-material-design: true
-  # No custom package assets are required for the calendar picker.
-  # If you add package-specific assets, list them here.
-  # assets:
-  #   - assets/
